@@ -1,0 +1,37 @@
+<header id="he"></header>
+<div class="headbolsa">
+ <p>BOLSA DE COMPRAS</p>
+</div>
+<div class="contenido">
+  <div *ngIf="ocultar,else alerta" class="c1">
+   <b><p id="tit">PEDIDO</p></b>
+   <div *ngFor="let sb of carrito"  class="mpedido">
+    <img src="{{sb.img}}" height="70px" width="70px">
+    <div class="btnoption">
+        <button id="ctplus"  (click)="aumentar(sb.id)" class="btn btn-primary"><i class="fas-solid fa-plus"></i></button>
+        <button id="ctminus"  (click)="disminuir(sb.id)" class="btn btn-danger"><i class="fa-solid fa-minus"></i></button>
+    </div>
+    <p>{{sb.cantidad}}</p>
+    <p>{{sb.nombre}}</p>
+    <p>S/{{sb.precio}}</p>
+    <button (click)="eliminaritem(sb.id)" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+   </div>
+  </div>
+  <div class="c2">
+   <b><p id="tit" >RESUMEN</p></b>
+  <div class="totalcompra">
+    <p>Total</p>
+    <p>S/{{preciofinal}}</p>
+  </div>
+   <button id="btnpass" routerLink="/compralista" class="btn btn-danger">ir a comprar</button>
+  </div>
+</div>
+<ng-template #alerta>
+    <div class="c1">
+        <b><p id="tit">PEDIDO</p></b>
+        <div class="alerta">
+            <p>No has añadido nada todavia</p>
+         <button routerLink="/"  class="btn btn-warning">Vamos a comprar</button>
+        </div>
+    </div>
+</ng-template>

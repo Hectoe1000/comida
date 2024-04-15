@@ -1,0 +1,88 @@
+<div class="todo">
+  <button id="home" routerLink="../"><i class="fa-solid fa-house"></i></button>
+<div id="a" class="a">
+  <div class="Fr2">
+    <h1>Iniciar Sesion</h1>
+    <form [formGroup]="loginForm">
+     <input formControlName="email"  type="email" class="form-control" placeholder="Email" >
+     <div *ngIf="loginForm.get('email')?.errors && loginForm.touched">
+      <span class="text-danger" *ngIf="loginForm.get('email')?.hasError('required')">Campo requerido</span>
+      </div>
+     <input formControlName="contrasena"  type="password" class="form-control" placeholder="Contraseña">
+     <div *ngIf="loginForm.get('contrasena')?.errors && loginForm.touched">
+      <span class="text-danger" *ngIf="loginForm.get('contrasena')?.hasError('required')">Campo requerido</span>
+      </div>
+     <br>
+     <button id="loginbtn" type="submit" [disabled]="loginForm.invalid" (click)="login()" class="btn btn-primary">Iniciar Sesion</button>
+    </form>
+  </div>
+</div>
+<div id="b" class="b">
+  <div *ngIf="d;else o">
+    <h1>No tienes una cuenta?</h1>
+    <p>Para comprar con mayor comodidad, registrate</p>
+    <button *ngIf="b;else t" (click)="prueba()" class="btn btn-danger">Registrarse</button>
+  </div>
+</div>
+<div id="c" class="c">
+  <div class="Fr2">
+    <h1>Crear Cuenta</h1>
+    <form [formGroup]="registroForm" id="mu">
+      <label>Tipo de Documento</label>
+      <b><p style="background-color: rgb(212, 199, 199);color: red;font-family: Arial, Helvetica, sans-serif;">{{mensaje1}}</p></b> 
+      <select class="form-select">
+        <option id="tipodocumento" *ngFor="let d of tipodocumentos" [value]="d.idTipoDocumento">
+          {{d.descripcion}}
+        </option>
+      </select>
+      <input (blur)="traerpordni()" id="numerodocumento" formControlName="nroDocumento" type="text" class="form-control" placeholder="NroDocumento">
+      <div *ngIf="registroForm.get('nroDocumento')?.errors && registroForm.touched">
+        <span style="background-color: rgba(250, 250, 240, 0.6);" class="text-danger" *ngIf="registroForm.get('nroDocumento')?.hasError('required')">Campo requerido</span>
+        <span style="background-color: rgba(250, 250, 240, 0.6);" class="text-danger" *ngIf="registroForm.get('nroDocumento')?.hasError('pattern')"> (solo números, max 8)</span>
+       </div>
+      <input style="display: none;" formControlName="idCliente" type="text" class="form-control">
+      <input value="{{datorecojo.nombre}}" formControlName="nombre" type="text" class="form-control" placeholder="Nombres">
+      <div *ngIf="registroForm.get('nombre')?.errors && registroForm.touched">
+        <span style="background-color: rgba(250, 250, 240, 0.6);" class="text-danger" *ngIf="registroForm.get('nombre')?.hasError('required')">Campo requerido</span>
+        <span style="background-color: rgba(250, 250, 240, 0.6);" class="text-danger" *ngIf="registroForm.get('nombre')?.hasError('pattern')">(solo letras, maximo 12)</span>
+    </div>
+      <input value="{{datorecojo.apPaterno}}" formControlName="apPaterno" type="text" class="form-control" placeholder="Apellido Paterno">
+      <div *ngIf="registroForm.get('apPaterno')?.errors && registroForm.touched">
+        <span style="background-color: rgba(250, 250, 240, 0.6);" class="text-danger" *ngIf="registroForm.get('apPaterno')?.hasError('required')">Campo requerido</span>
+        <span style="background-color: rgba(250, 250, 240, 0.6);" class="text-danger" *ngIf="registroForm.get('apPaterno')?.hasError('pattern')"> (solo letras, maximo 12)</span>
+     </div>
+      <input value="{{datorecojo.apMaterno}}" formControlName="apMaterno" type="text" class="form-control" placeholder="Apellido Materno">
+      <div *ngIf="registroForm.get('apMaterno')?.errors && registroForm.touched">
+        <span style="background-color: rgba(250, 250, 240, 0.6);" class="text-danger" *ngIf="registroForm.get('apMaterno')?.hasError('required')">Campo requerido</span>
+        <span style="background-color: rgba(250, 250, 240, 0.6);" class="text-danger" *ngIf="registroForm.get('apMaterno')?.hasError('pattern')">  (solo letras, maximo 12)</span>
+        </div>
+      <input formControlName="celular" type="text" class="form-control" placeholder="Celular">
+      <div *ngIf="registroForm.get('celular')?.errors && registroForm.touched">
+        <span style="background-color: rgba(250, 250, 240, 0.6);" class="text-danger" *ngIf="registroForm.get('celular')?.hasError('required')">Campo requerido</span>
+        <span style="background-color: rgba(250, 250, 240, 0.6);" class="text-danger" *ngIf="registroForm.get('celular')?.hasError('pattern')">(solo números, 9 digitos)</span>
+       </div>
+      <input (blur)="gmailprueba()"  id="emailprueba" formControlName="email" type="email" class="form-control" placeholder="Email">
+      <div *ngIf="registroForm.get('email')?.errors && registroForm.touched">
+        <span style="background-color: rgba(250, 250, 240, 0.6);" class="text-danger" *ngIf="registroForm.get('email')?.hasError('required')">Campo requerido</span>
+        <span style="background-color: rgba(250, 250, 240, 0.6);" class="text-danger" *ngIf="registroForm.get('email')?.hasError('email')">Debe ser un email</span>
+        </div>
+        <b><p style="background-color: rgb(212, 199, 199);color: red;font-family: Arial, Helvetica, sans-serif;">{{mensaje2}}</p></b> 
+      <label>Sus Credenciales</label>
+      <input id="contra1" type="password" class="form-control" placeholder="Contraseña">
+      <b><p style="background-color: black;color: red;font-family: Arial, Helvetica, sans-serif;">{{mensaje}}</p></b> 
+      <input id="contra2" type="password" class="form-control" placeholder="Repita la Contraseña">
+      <b><p style=" background-color:black;color:red;font-family: Arial, Helvetica, sans-serif;">{{mensaje}}</p></b> 
+      <br>
+      <button [disabled]="registroForm.invalid" (click)="comprobarcrendeciales()" class="btn btn-info">Registrarse</button>
+     </form>
+  </div> 
+  </div> 
+</div>
+<ng-template #o>
+  <div>
+    <h1>Ya estas registrado?</h1>
+    <p>Compra siempre junto a nosotros</p>
+    <button *ngIf="b;else t"  (click)="prueba2()" class="btn btn-danger">Inicia Sesion</button>
+  </div>
+</ng-template>
+<ng-template #t></ng-template>

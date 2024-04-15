@@ -1,0 +1,25 @@
+#bod{
+    background-color:white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#lugar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 8rem;
+}
+p{
+    font-size: 2rem;
+    color: red;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 3rem;
+}
+img{
+    background-color: white;
+    height: 20rem;
+}

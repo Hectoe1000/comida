@@ -1,0 +1,34 @@
+<app-template-navbar></app-template-navbar>
+<div class="body">
+<div class="todo">
+    <app-template-sidevar></app-template-sidevar>
+<div class="div3">
+ <h2><b>Direcciones</b></h2>
+ <p style="font-size: 20px;">Aqui Podras ver y agregar tus direcciones</p>
+    <div class="datosperso">
+        <h4>Direcciones de despacho</h4>
+        <div class="labelt">
+            <div  *ngFor=" let sb of direccion" class="none">
+                <label>Direccion: {{sb.distrito}}</label><br>
+                <label>{{sb.calle}}</label><br>
+                <label>{{sb.distrito}}</label>
+                <br>
+                <div class="text-center">
+                    <button (click)="interface_eliminar(sb.idDireccion)" class="btn btn-danger"><i class="fa-solid fa-trash text-white"></i></button>
+                </div>
+            </div>
+            <div id="desaparecer">
+                <a routerLink='../newdirection' class="newdirection">
+                    <button>
+                        <i class="fa-solid fa-plus"></i>
+                        Agregar direccion
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<app-template-footer></app-template-footer>
+

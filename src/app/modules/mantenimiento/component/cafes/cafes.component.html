@@ -1,0 +1,70 @@
+<div class="generaltodo">
+    <div id="general">
+<app-template-navbar></app-template-navbar>
+  <section >
+        <div class="fondos">
+            <h2 class="text-white text-center" style="font-family: 'Times New Roman', Times, serif;font-weight: bold;font-size: 70px;padding-top: 7rem;">
+                CAFES
+            </h2>
+        </div>
+ <app-template-lista></app-template-lista>       
+        <div class="container"  >
+            <div class="row justify-content-center text-center ">
+                 <div class="col-one rounded" style="margin: 10px;" *ngFor="let sb  of vusuarioProducto">
+                    <div (click)="comprarProducto(modalProducto,sb.idProducto)" >
+                        <img *ngIf="sb.imagen; else noImage" src="{{ sb.imagen }}" [height]="250" [width]="300">
+                        <p>{{sb.nombre}}</p>
+                        <p>{{sb.descripcion}}</p>
+                        <p>S/{{sb.precio}}</p>
+                        <button class="btn btn-danger "><i class="fas fa-shopping-cart"></i>&nbsp;Agregar</button>            
+                    </div>    
+                </div> 
+            </div>
+        </div> 
+    </section>
+<app-template-footer></app-template-footer> 
+</div>
+<div id="carrito" >
+    <div *ngIf="sincompra, else sc" id="contecarr">
+    <button (click)="ocultarcarrito()" class="btn btn-light"><i class="fa-solid fa-arrow-left"></i></button>
+    <div id="listcompra">
+        <div *ngFor="let sb of carrito" id="listitem">
+            <img src="{{sb.img}}" width="30px" height="30px">
+                <p>{{sb.cantidad}}</p>
+                <p>{{sb.nombre}}</p>
+                <p>S/{{sb.precio}}</p>
+                <button (click)="eliminaritem(sb.nombre)" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+        </div>
+</div>
+<!--fin de list compra-->
+<div id="footer">
+    <div style="color: white;">
+        <h5>Total</h5>
+        <p>S/{{preciofinal}}</p>
+    </div>    
+    <button routerLink="/bolsa" class="btn btn-warning">Comprar</button>  
+</div>
+</div><!-- fin de contecar-->
+</div><!-- fin caarritor -->
+</div>
+<ng-template #modalProducto>
+    <app-modalproducto
+    [accion]="accionModal"
+    [producto]="ProductoSeleted"
+    [pro]="producto.idProducto"
+    (closeModalEmmit)="getCloseModalEmmit($event)"
+    >
+   </app-modalproducto>
+</ng-template>
+<ng-template #noImage>
+    <img src="../../../../../assets/imgs/noimage.jpg" [height]="250" [width]="300">
+</ng-template>
+<ng-template #sc>
+    <div id="contecarr">
+        <button (click)="ocultarcarrito()" class="btn btn-light"><i class="fa-solid fa-arrow-left"></i></button>
+        <div class="shop">
+            <p class="text-center"><i style="color: red;font-size: 40px;" class="fa-solid fa-basket-shopping"></i></p>
+            <p class="text-center">No hay nada aun</p>
+        </div>
+    </div>
+</ng-template>

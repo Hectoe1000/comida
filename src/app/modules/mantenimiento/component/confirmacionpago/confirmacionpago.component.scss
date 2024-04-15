@@ -1,0 +1,172 @@
+#cabeza{
+    background-color: rgb(152, 15, 42);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    color: white;
+}
+#btnsuperior{
+    position:absolute;
+}
+.todo{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.separ1{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 4rem;
+}
+.separ2{
+    width: 80%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+}
+.grid1{
+ height:max-content;
+ margin: 1rem;
+ display: flex;
+ justify-content: center;
+}
+.grid2{
+    height: max-content;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.grid3{
+    height: max-content;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.datospersona{
+    background-color: white;
+    height: 100%;
+    width: 70%;
+    border-radius: 20px;
+    padding: 0.5rem;
+    border: black solid 1px;
+    display: flex;
+    flex-direction: column;
+}
+.datospersona2{
+    background-color: white;
+    height: 100%;
+    width: 70%;
+    border-radius: 20px;
+    padding: 0.5rem;
+    border: black solid 1px;
+}
+.datospersona3{
+    background-color: white;
+    height: 100%;
+    width: 70%;
+    border-radius: 20px;
+    padding: 0.5rem;
+    border: black solid 1px;
+}
+.yt{
+    display: flex;
+    flex-direction: row;
+}
+.infopersonal{
+    margin-left: 2rem;
+}
+.prueba{
+    background-color: aqua;
+    height: 100%;
+    width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+#mapadesaparecer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.card{
+  height: 70%;
+  width: 45%;
+}
+.sb-title {
+    position: relative;
+    top: -12px;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+  }
+  
+  .sb-title-icon {
+    position: relative;
+    top: -5px;
+  }
+  
+  .card-container {
+    display: flex;
+    height: 500px;
+    width: 750px;
+  }
+  
+  .panel {
+    background: white;
+    width: 350px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  .half-input-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .half-input {
+    max-width: 120px;
+  }
+  
+  .map {
+    width: 350px;
+  }
+  
+  h2 {
+    margin: 0;
+    font-family: Roboto, sans-serif;
+  }
+  
+  input {
+    height: 30px;
+  }
+  
+  input {
+    border: 0;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+  }
+  
+  input:focus::placeholder {
+    color: white;
+  }
+  
+  .button-cta {
+    align-self: start;
+    background-color: #1976d2;
+    border: 0;
+    border-radius: 21px;
+    color: white;
+    cursor: pointer;
+    font-family: "Google Sans Text", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 27px;
+    padding: 3.5px 10.5px;
+  }

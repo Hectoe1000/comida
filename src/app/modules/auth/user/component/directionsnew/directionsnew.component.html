@@ -1,0 +1,39 @@
+<app-template-navbar></app-template-navbar>
+<div class="body">
+<div class="todo">
+    <app-template-sidevar></app-template-sidevar>
+<div class="div3">
+ <h2><b>Direcciones</b></h2>
+ <p style="font-size: 20px;">Añada su nueva direccion</p>
+    <div class="datosperso">
+        <div class="card-container">
+            <div class="panel">
+              <div>
+                <img class="sb-title-icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/location_pin/v5/24px.svg" alt="">
+                <span class="sb-title">Seleccione su direccion</span>
+              </div>
+              <label style="font-size: small;">Digite su direccion,lo demas se autocompletara, incluya el numero de calle si lo tuviera:
+                Ejemplo: Avenida Bruno Terreros 45
+              </label>
+              <h2 class="text-danger" style="font-family:Arial, Helvetica, sans-serif;background-color: black;"> {{warning1}}</h2>
+              <input (blur)="quitarmarca()" type="text" placeholder="Direccion" id="location-input" />
+              <input type="text" placeholder="Numero" id="street_number" disabled>
+              <input (blur)="quitarmarca()" type="text" placeholder="Apt, Piso, etc (Agregar referencia, es necesaria)" id="referencias"/>
+              <p class="text-danger">{{alert}}</p>
+              <input type="text" placeholder="Ciudad" id="locality-input" disabled/>
+              <p class="text-danger">{{alert2}}</p>
+              <input type="text" placeholder="Distrito" id="distrito" disabled> 
+              <div class="half-input-container">
+                <input type="text" class="half-input" placeholder="Estado/Provincia" id="administrative_area_level_1-input" disabled/>
+                <input type="text" class="half-input" placeholder="codigo Postal" id="postal_code-input" disabled/>
+              </div>
+              <input type="text" placeholder="Pais" id="country-input" disabled/><br>
+                <button (click)="ver()" class="button-cta">Guardar Direccion</button>
+            </div>
+            <div class="map" id="gmp-map"></div>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+<app-template-footer></app-template-footer>

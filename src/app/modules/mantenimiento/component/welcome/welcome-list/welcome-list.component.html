@@ -1,0 +1,128 @@
+<div class="generaltodo">
+<div id="general">
+<header  class="navbar"  style="background-color:rgb(185, 44, 60);">
+<h6 class="text-white">Lunes a viernes de 4 a 10 pm</h6>
+<button *ngIf="us;else btnuser" routerLink="/login" class="btn btn-primary bg-white text-dark" >Inicia sesion o registrate</button>
+</header>
+<div class="navbar" style="background-color: rgba(185, 44, 60, 0.8);height: 150px;font-size: 20px;">
+    <a href="#" style="margin-left: 30px; font-weight: bold;">Promociones</a>
+    <a  href="https://kompartecafe.wordpress.com/"   style="font-weight: bold;">¿Quienes somos?</a>
+    <img class="bg-white rounded-circle" src="../../../../../../assets/imgs/logomenu1.png" width="200px" height="200px">
+    <a  href="/ubicanos"  style="font-weight: bold;">Nuestro local</a>
+    <button id="btncar" (click)="mostrarcarrito()" style="margin-right: 30px;" class="btn btn-primary bg-dark"><i class="fas fa-shopping-cart"></i>&nbsp;{{carritovistanumber}}</button>
+</div>
+<section >
+    <h2 class="text-danger text-center" style="margin-top: 80px;font-family: 'Times New Roman', Times, serif;font-weight: bold;">
+        NUESTRAS CATEGORIAS
+    </h2>
+    <br>
+<div class="container">
+    <div class="row">
+        <a class="col"  routerLink="carta/hamburguesas"> 
+            <img class="rounded-circle" height="100px" width="100px" src="../../../../../../assets/imgs/hamburmenu2.jpg">
+            <p  >hamburguesas</p>
+        </a>
+        <a class="col"  routerLink="carta/salchipapas">
+            <img class="rounded-circle" height="100px" width="100px"  src="../../../../../../assets/imgs/menusalchi.jpg">
+            <p  >Salchipapas</p>
+        </a>
+        <a class="col"  routerLink="carta/cafes">
+            <img class="rounded-circle" height="100px" width="100px"  src="../../../../../../assets/imgs/cafemenu.jpg">
+            <p  >Cafes</p>
+        </a>
+        <a class="col"  routerLink="carta/piqueos"> 
+            <img class="rounded-circle" height="100px" width="100px"  src="../../../../../../assets/imgs/menutequeños.jpg">
+            <p  >Piqueos</p>
+        </a> 
+        <a class="col"  routerLink="carta/cocteles">
+            <img class="rounded-circle" height="100px" width="100px"  src="../../../../../../assets/imgs/coctelmenu.jpg">
+            <p  >Cocteles</p>
+        </a>
+        <a class="col"  routerLink="carta/postres">
+            <img  class="rounded-circle" height="100px" width="100px" src="../../../../../../assets/imgs/tartamenu.jpg">
+            <p  >Postres</p>
+        </a>
+        <a class="col"  routerLink="carta/bebidas">
+            <img class="rounded-circle" height="100px" width="100px"  src="../../../../../../assets/imgs/bebidamenu.jpg">
+            <p  >Bebidas</p>
+        </a>
+    </div>
+</div>
+    <p class="text-danger text-center display-4" style="background-color: rgb(247, 122, 77);">
+        PROMOCIONES
+    </p>
+    <div class="container">
+        <div class="row justify-content-center text-center ">
+            <div class="col-one rounded" style="margin: 10px;" *ngFor="let sb  of vusuarioProducto">
+                <div (click)="comprarProducto(modalProducto,sb.idProducto)" >
+                    <img *ngIf="sb.imagen; else noImage" src="{{ sb.imagen }}" [height]="250" [width]="300">
+                    <p>{{sb.nombre}}</p>
+                    <p>{{sb.descripcion}}</p>
+                    <p>S/{{sb.precio}}</p>
+                    <button class="btn btn-danger "><i class="fas fa-shopping-cart"></i>&nbsp;Agregar</button>            
+                </div>
+             </div>
+        </div>
+    </div>
+</section>
+<br>
+<br>
+<footer class="navbar text-white" style="background-color: rgb(132, 22, 22);">
+    <p>Nuestras Politicos</p>
+    <p>Atencion al cliente</p>
+    <p>Terminos y condiciones</p>
+</footer>
+</div>
+<div id="carrito" >
+    <div *ngIf="sincompra, else sc" id="contecarr">
+    <button (click)="ocultarcarrito()" class="btn btn-light"><i class="fa-solid fa-arrow-left"></i></button>
+    <div id="listcompra">
+        <div *ngFor="let sb of carrito" id="listitem">
+                <img src="{{sb.img}}" width="30px" height="30px">
+                <p>{{sb.cantidad}}</p>
+                <p>{{sb.nombre}}</p>
+                <p>S/{{sb.precio}}</p>
+                <button (click)="eliminaritem(sb.nombre)" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+        </div>
+</div>
+<!--fin de list compra-->
+<div id="footer">
+    <div style="color: white;">
+        <h5>Total</h5>
+        <p>S/{{preciofinal}}</p>
+    </div>    
+    <button routerLink="/bolsa" (click)="enviardatoscompra()" class="btn btn-warning">Comprar</button>  
+</div>
+</div><!-- fin de contecar-->
+</div><!-- fin caarritor -->
+</div>
+<ng-template #modalProducto>
+    <app-modalproducto
+    [accion]="accionModal"
+    [producto]="ProductoSeleted"
+    [pro]="producto.idProducto"
+    (closeModalEmmit)="getCloseModalEmmit($event)"
+    >
+   </app-modalproducto>
+</ng-template>
+<ng-template #noImage>
+    <img src="../../../../../assets/imgs/noimage.jpg" [height]="250" [width]="300">
+  </ng-template>
+  <ng-template #btnuser>
+    <div class="userbtn">
+        <button class="btn btn-primary bg-white text-dark" >{{username}} <i (click)="desplegaropciones()" class="fa-solid fa-arrow-down"></i> </button>
+        <div id="optionsesion" class="optionsesion"> 
+           <button routerLink="/user/perfil" class="btn btn-light">Mi cuenta</button><br>
+           <button (click)="cerrarsesion()" class="btn btn-danger">Cerrar Sesion</button>
+       </div>
+    </div>
+  </ng-template>
+<ng-template #sc>
+    <div id="contecarr">
+        <button (click)="ocultarcarrito()" class="btn btn-light"><i class="fa-solid fa-arrow-left"></i></button>
+        <div class="shop">
+            <p class="text-center"><i style="color: red;font-size: 40px;" class="fa-solid fa-basket-shopping"></i></p>
+            <p class="text-center">No hay nada aun</p>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,54 @@
+<div class="modal-body bg-warning rounded" *ngFor="let sb of infoProducto" >
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="cerrarModal(false)" >
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+      <form [formGroup]="myForm">
+        <div class="row">
+            <div class="col-6 mt">
+              <div class="form-group text-center">
+                <img src="{{sb.imagen}}" height="250rem" width="300rem">
+              </div>
+            </div>          
+             <div class="col-6 mt">
+              <div style="margin-top: 3rem;" class="form-group text-center">
+                <h4 class="color-dark">{{sb.nombre.toUpperCase()}}</h4>
+                <div class="bg-white">
+                  <p><b>{{sb.descripcion.toUpperCase()}}</b></p>
+                  <p class="text-danger"><b>S/{{sb.precio}}</b></p>
+                </div>
+                <!-- <div class="row">
+                   <div class="col-4 ">
+                    <img src="../../../../../assets/imgs/noimage.jpg" height="90px" width="90px">
+                    <input class="inputnumber" min="1" max="10" value="1"  type="number" >
+                  </div>
+                  <div class="col-4 ">            
+                    <img src="../../../../../assets/imgs/noimage.jpg" height="90px" width="90px">
+                    <input class="inputnumber" min="1" max="10" value="1"  type="number">
+                  </div>
+                  <div class="col-4 ">                  
+                    <img src="../../../../../assets/imgs/noimage.jpg" height="90px" width="90px">
+                    <input class="inputnumber" min="1" max="10" value="1"  type="number">
+                  </div> -->
+                <!-- </div> -->
+              </div>
+            </div> 
+          </div>
+          <br>
+       <div class="row bg-danger" id="parque">
+        <div class="col-3 mt">
+         <p><b>{{sb.nombre.toUpperCase()}}</b></p>
+      </div>
+      <div class="col-3 mt">
+        <p style="color: white;">S/{{sb.precio}}</p>
+    </div>
+    <div class="col-3 mt">
+      <button style="background-color: rgb(189, 52, 52);" id="bty" (click)="decrement()">-</button>  
+      <input id="ulti" min="1" max="10" readonly value="{{value}}" type="number"> 
+      <button style="background-color: blue;" id="bty" (click)="increment()">+</button>    
+  </div>
+        <div class="col-3 mt">
+              <button class="btn btn-sm btn-primary " (click)="guardar(sb.idProducto)"><i class="fas fa-shopping-cart"></i>&nbsp;Agregar</button>
+          </div>
+        </div>
+      </form> 
+  </div>

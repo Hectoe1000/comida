@@ -1,0 +1,57 @@
+.todo{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.a{
+  background-image: url('https://static.vecteezy.com/system/resources/previews/032/437/356/non_2x/coffee-cup-the-sun-lake-mountains-sunrise-the-hd-wallpaper-ai-generated-free-photo.jpg');
+  background-size: cover;
+  flex-direction: row;
+  width: 50%;
+  display: grid;
+  align-items: center;
+}
+.b{
+  flex-direction: row;
+  background-color: rgb(152, 21, 52);
+  width: 50%;
+  display: grid;
+  align-items: center;
+  color: white;
+}
+.c{
+  background-image: url('https://static.vecteezy.com/system/resources/previews/019/023/604/non_2x/front-view-tasty-meat-burger-with-cheese-and-salad-free-photo.jpg');
+  background-size: cover;
+  flex-direction: row;
+  width: 0%;
+  display: grid;
+  align-items: center;
+  color: white;
+}
+form{
+  background-color: rgba($color: #ffffff, $alpha: 0.2);
+  padding:2rem;
+  width: 20rem;
+  border-radius: 25px;
+}
+.Fr2{
+  display: grid;
+  justify-content: center;
+}
+input{
+  margin-top: 10px;
+}
+#home{
+  border-color: black 10px;
+  background-color: black;
+}
+#home:hover{
+  background-color: rgb(58, 58, 58);
+}
+#home > i {
+  color: white;
+}
+#mu{
+  display: none;
+}

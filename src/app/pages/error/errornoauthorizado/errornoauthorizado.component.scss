@@ -1,0 +1,21 @@
+#bod{
+    background-color: rgb(232, 205, 35);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#lugar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+}
+h1{
+    font-size: 18rem;
+}
+p{
+    font-size: 2rem;
+}

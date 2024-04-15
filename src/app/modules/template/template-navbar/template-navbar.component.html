@@ -1,0 +1,39 @@
+<header class="navbar" style="background-color: rgb(185, 44, 60);">
+  <h6 class="text-white">Lunes a viernes de 4 a 10 pm</h6>
+  <button *ngIf="us;else btnuser" routerLink="/login" class="btn btn-primary bg-white text-dark" >Inicia sesion o registrate</button>
+</header>
+<div class="navbar bg-dark text-white">
+  <a routerLink="../../"  style="margin-left: 30px; font-weight: bold;">Promociones</a>
+  <a href="https://kompartecafe.wordpress.com/" style="font-weight: bold;">¿Quiénes somos?</a>
+  <a href="/ubicanos" style="font-weight: bold;">Nuestro local</a>
+  <div>
+    <input type="text" placeholder="Buscas algo en específico" id="filtro" (input)="probando()">
+    <ul id="miBarra" style="display: none;">
+      <li *ngFor="let producto of productosFiltrados">
+        <a (click)="comprarProducto(modalProducto,producto.id)">
+          <img [src]="producto.imagen" width="40px" height="40px">
+          &nbsp;{{ producto.nombre }}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <button id="btncar" (click)="mostrarcarrito()" style="margin-right: 30px;" class="btn btn-primary bg-dark"><i class="fas fa-shopping-cart"></i>&nbsp;{{carritovistanumber}}</button>
+</div>
+<ng-template #modalProducto>
+ <app-modalproducto
+ [accion]="accionModal"
+ [producto]="ProductoSeleted"
+ [pro]="producto.idProducto"
+ (closeModalEmmit)="getCloseModalEmmit($event)"
+ >
+</app-modalproducto>
+</ng-template>
+<ng-template #btnuser>
+  <div class="userbtn">
+      <button class="btn btn-primary bg-white text-dark" >{{username}} <i (click)="desplegaropciones()" class="fa-solid fa-arrow-down"></i> </button>
+      <div id="optionsesion" class="optionsesion"> 
+         <button routerLink="/user/perfil" class="btn btn-light">Mi cuenta</button><br>
+         <button (click)="cerrarsesion()" class="btn btn-danger">Cerrar Sesion</button>
+     </div>
+  </div>
+</ng-template>

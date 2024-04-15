@@ -1,0 +1,78 @@
+.col-one{
+    width: min-content;
+    background-color: rgb(229, 231, 112);
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+.userbtn{
+margin-right: 2.5rem;
+}
+.userbtn > .optionsesion{
+    background-color: white;
+    text-align: center;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 3;
+    display: none;
+}
+.userbtn >.optionsesion > button{
+   width: 10rem;
+}
+.generaltodo{
+    display: flex;
+}
+#general{
+    flex-direction: row;
+    width: 100%;
+}
+#carrito{
+    flex-direction: row;
+    width: 0%;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+}
+#contecarr{
+    display: none;
+    width: 100%;
+} 
+#listcompra{
+    padding: 1rem;
+    width: 100%;
+    
+}
+#listitem{
+    margin: 1rem;
+    background-color: white;
+    border-radius: 20px;
+    padding: 12px;
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#footer{
+    background-color: rgb(241, 70, 96);
+    position: fixed;
+    bottom: 0;
+    width: 20%;
+    padding: 10px;
+}
+#footer > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+////sistema para ocultar carrito
+.shop{
+   margin-top: 90%;
+}
+#ct2{
+    display: block;
+    width: 100%;
+}

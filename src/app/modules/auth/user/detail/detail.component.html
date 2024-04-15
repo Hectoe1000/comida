@@ -1,0 +1,36 @@
+<app-template-navbar></app-template-navbar>
+<div class="body">
+<div class="todo">
+    <app-template-sidevar></app-template-sidevar>
+<div class="div3">
+ <h2><b>Mi Perfil</b></h2>
+ <p style="font-size: 20px;">Aqui encontraras tus datos personales</p>
+    <div class="datosperso">
+        <h4>Mis datos personales</h4>
+        <div *ngFor="let sb of cliente" class="labelt">
+            <div>
+                <label>Nombres</label><br>
+                <input type="text" value="{{sb.nombre}}" disabled>
+            </div>
+           <div>
+            <label>Apellidos</label><br>
+            <input type="text" value="{{sb.apMaterno + ' '+ sb.apPaterno}}" disabled>
+           </div>
+           <div>
+            <label>DNI</label><br>
+            <input type="text" value="{{sb.nroDocumento}}" disabled>
+           </div>
+            <div>
+                <label>Telefono</label><br>
+                <input type="number" value="{{sb.celular}}" disabled>
+            </div>
+            <div>
+                <label>Email</label><br>
+                <input type="email" value="{{sb.email}}" disabled>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<app-template-footer></app-template-footer>

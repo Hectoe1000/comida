@@ -1,0 +1,112 @@
+.body{
+    background-color: rgb(219, 219, 219);
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.todo{
+    display: flex;
+    margin: 3rem;
+    margin-top: -1rem;
+}
+.div3{
+ background-color: white;
+ border-radius: 20px;
+ margin-left: 1rem;
+ padding: 1rem;
+ height: min-content;
+}
+.div3 > .datosperso{
+    padding: 1rem;
+    border: black solid 1px;
+    border-radius: 20px;
+    margin: 1rem;
+}
+.prueba{
+    background-color: aqua;
+    height: 100%;
+    width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.card{
+  height: 70%;
+  width: 45%;
+}
+.sb-title {
+    position: relative;
+    top: -12px;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+  }
+  
+  .sb-title-icon {
+    position: relative;
+    top: -5px;
+  }
+  
+  .card-container {
+    display: flex;
+    height: 400px;
+    width: 750px;
+  }
+  
+  .panel {
+    background: white;
+    width: 400px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  .half-input-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .half-input {
+    max-width: 120px;
+  }
+  
+  .map {
+    width: 400px;
+  }
+  
+  h2 {
+    margin: 0;
+    font-family: Roboto, sans-serif;
+  }
+  
+  input {
+    height: 30px;
+  }
+  
+  input {
+    border: 0;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+  }
+  
+  input:focus::placeholder {
+    color: white;
+  }
+  
+  .button-cta {
+    align-self: start;
+    background-color: #1976d2;
+    border: 0;
+    border-radius: 21px;
+    color: white;
+    cursor: pointer;
+    font-family: "Google Sans Text", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 27px;
+    padding: 3.5px 10.5px;
+  }

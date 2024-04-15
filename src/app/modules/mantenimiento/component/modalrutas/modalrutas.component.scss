@@ -1,0 +1,26 @@
+#todo{
+display: flex;
+flex-direction: column;
+}
+#container {
+  height: 100%;
+  display: flex;
+}
+#map {
+  flex-basis: 0;
+  flex-grow: 4;
+   height:20rem;
+   width: 15rem;
+}
+
+#sidebar {
+  flex-direction: column;
+}
+#datovista{
+    display: flex;
+flex-direction: column;
+}
+.net{
+    display: flex;
+    flex-direction: row;
+}

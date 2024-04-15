@@ -1,0 +1,16 @@
+<div class="modal-body rounded" >
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="cerrarModal(false)"></button>
+    <div id="todo">
+      <div id="container">
+        <div id="map"></div>
+      </div>
+      <div *ngFor="let d of direccionf" id="datovista">
+          <h3 style="flex-grow: 0">Direccion </h3><h5> {{ d.calle + ' ' + (d.numero === 0 ? 's/n' : d.numero) + ' ' + d.distrito }}</h5>
+          <div class="net">
+            <pre style="flex-grow: 1" id="response"></pre>
+            <p>*Se considera el tiempo de preparacion 5min</p>
+          </div>
+        <p><b>Tiempo estimado de llegada:</b>&nbsp; {{totaldistancia}}&nbsp;min</p>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,106 @@
+<button id="btnsuperior" routerLink="/bolsa"  class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i></button>
+<div id="cabeza">
+     <h3>Resumen de pedido</h3>
+</div>
+ <div class="todo">
+    <div class="separ1">
+    <h2>Lista de Resumen</h2>
+      <p *ngFor="let sb of carrito">{{sb.cantidad}}&nbsp;{{sb.nombre}}</p>
+      <p class="text-danger"> Total : S/{{preciofinal}}</p>
+    </div>
+    <div class="separ2">
+     <div class="grid1">
+        <div class="datospersona">
+           <b><p class="text-center">¿Quien esta haciendo el pedido?</p></b> 
+    <div *ngFor="let sb of cliente" class="infopersonal">
+         <div class="yt"><p>Nombres:&nbsp;{{sb.nombre}}</p></div>
+         <div class="yt"> <p>Apellidos:&nbsp;{{sb.apMaterno + ' '+ sb.apPaterno}}</p> </div>
+         <div class="yt"> <p>DNI:&nbsp;{{sb.nroDocumento}}</p></div>
+         <div class="yt"> <p>Correo electronico:&nbsp;{{sb.email}}</p>  </div>
+         <div class="yt"> <p>Telefono:&nbsp;{{sb.celular}}</p></div>
+    </div>
+        </div>
+      </div>
+        <div class="grid2">
+            <div class="datospersona2">
+               <b> <p class="text-center">¿Como lo enviamos?</p></b>
+               <div class="infopersonal">
+                <p>Tipo de envio:&nbsp; Delivery</p>
+                <label>Escoge la direccion de entrega</label>         
+                <h4 class="text-danger">{{verdireccion}}</h4>
+<!-- mapa aqui-->
+<div id="mapadesaparecer" >
+<h4 class="text-center">¡No tienes una direccion Registrada, registra tu direccion para continuar!</h4>
+<div class="card-container">
+  <div class="panel">
+    <div>
+      <img class="sb-title-icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/location_pin/v5/24px.svg" alt="">
+      <span class="sb-title">Seleccione su direccion</span>
+    </div>
+    <label style="font-size: small;">Digite su direccion,lo demas se autocompletara, incluya el numero de calle si lo tuviera:
+      Ejemplo: Avenida Bruno Terreros 45
+    </label>
+    <h2 class="text-danger" style="font-family:Arial, Helvetica, sans-serif;background-color: black;"> {{warning1}}</h2>
+    <input (blur)="quitarmarca()" type="text" placeholder="Direccion" id="location-input" />
+    <input type="text" placeholder="Numero" id="street_number" disabled>
+    <input (blur)="quitarmarca()" type="text" placeholder="Apt, Piso, etc (Agregar referencia, es necesaria)" id="referencias"/>
+    <p class="text-danger">{{alert}}</p>
+    <input type="text" placeholder="Ciudad" id="locality-input" disabled/>
+    <p class="text-danger">{{alert2}}</p>
+    <input type="text" placeholder="Distrito" id="distrito" disabled> 
+    <div class="half-input-container">
+      <input type="text" class="half-input" placeholder="Estado/Provincia" id="administrative_area_level_1-input" disabled/>
+      <input type="text" class="half-input" placeholder="codigo Postal" id="postal_code-input" disabled/>
+    </div>
+    <input type="text" placeholder="Pais" id="country-input" disabled/><br>
+      <button (click)="ver()" class="button-cta">Guardar Direccion</button>
+  </div>
+  <div class="map" id="gmp-map"></div>
+</div>
+</div>
+<!-- fin de mapa aqui -->
+                <div *ngIf="vadirection, else mapadirection" class="yt"></div>
+                <div *ngIf="varruta,else calculoruta"> </div>          
+               </div>
+            </div>
+        </div >
+        <div class="grid3">
+            <div class="datospersona3">
+               <b><p class="text-center">Metodo de pago</p></b> 
+              <div class="infopersonal">
+                <p>Para poder pagar, seras redirjido ala plataforma de mercado pago,<b> verifica todo antes de continuar</b></p>
+                <p class="text-center">Se aceptan tarjetas de credito y debito</p>
+                <div style="display: flex; justify-content: center;font-size:40px;" class="text-center">
+                  <i class="fa-brands fa-cc-visa"></i>&nbsp;<i class="fa-brands fa-cc-mastercard"></i>&nbsp;<i class="fa-solid fa-credit-card"></i>
+                </div>
+                
+             </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button id="botonantes" (click)="validadionpreviopago()" class="btn btn-primary">Continuar</button> 
+            <div style="display: flex;justify-content: center;">
+              <div style="display: none;width: 20rem;justify-content: center;" id="wallet_container"></div>
+            </div> 
+           <p>&nbsp;</p>
+        </div>
+    </div>
+</div>
+<ng-template #mapadirection>
+<p style="margin-top: 10px;">Direccion:&nbsp;</p>
+<select id="fg" class="form-select">
+    <option *ngFor=" let sb of direccion" value="{{sb.idDireccion}}"> {{ sb.calle + ' ' + (sb.numero === 0 ? 's/n' : sb.numero) + ' ' + sb.distrito }}
+    </option>
+</select>
+</ng-template>
+
+<ng-template #calculoruta>
+    <p>Puedes calcular el tiempo de delivery por la ruta, si quieres saber un estimado,presiona el boton </p>
+    <button (click)="mostrarruta(modalruta)"  class="btn btn-primary">Calcular tiempo de ruta</button>
+</ng-template>
+<ng-template #modalruta>
+<app-modalrutas
+[direccion]="direccionenvio"
+(closeModalEmmit)="getCloseModalEmmit($event)"
+></app-modalrutas>
+</ng-template>
