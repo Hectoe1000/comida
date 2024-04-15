@@ -17,6 +17,8 @@ const routes: Routes = [
     {path:'piqueos',component:PiqueosComponent},
     {path:'postres',component:PostresComponent},
     {path:'salchipapas',component:SalchipapasComponent},
+    {path:'**',component:SalchipapasComponent},
+  
 ];
 
 @NgModule({
